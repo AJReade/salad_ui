@@ -1,0 +1,141 @@
+/* Scroll area */
+
+/* firefox */
+.salad-scroll-area {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.salad-scroll-area:hover {
+    scrollbar-color: #c2c2c2 transparent;
+}
+
+/* Chrome, Edge, and Safari */
+.salad-scroll-area::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.salad-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+.salad-scroll-area::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    border-radius: 14px;
+}
+
+.animate-indeterminate-progress {
+    animation: indeterminate-progress 1.5s infinite linear;
+    background: linear-gradient(
+        to right,
+        transparent,
+        currentColor,
+        transparent
+    );
+    background-size: 200% 100%;
+    width: 100%;
+}
+
+/* Viewport height utilities */
+.min-h-svh {
+    min-height: 100svh;
+}
+
+/* Sidebar layout utilities */
+.group\/sidebar-wrapper {
+    --tw-space-y-reverse: 0;
+    --tw-space-x-reverse: 0;
+}
+
+/* Peer data selectors for sidebar states */
+.peer-data-\[variant\=inset\]\:min-h-\[calc\(100svh-theme\(spacing\.4\)\)\]:where(.peer[data-variant="inset"]) ~ * {
+    min-height: calc(100svh - 1rem);
+}
+
+@media (min-width: 768px) {
+    .md\:peer-data-\[variant\=inset\]\:m-2:where(.peer[data-variant="inset"]) ~ * {
+        margin: 0.5rem;
+    }
+    
+    .md\:peer-data-\[state\=collapsed\]\:peer-data-\[variant\=inset\]\:ml-2:where(.peer[data-state="collapsed"][data-variant="inset"]) ~ * {
+        margin-left: 0.5rem;
+    }
+    
+    .md\:peer-data-\[variant\=inset\]\:ml-0:where(.peer[data-variant="inset"]) ~ * {
+        margin-left: 0;
+    }
+    
+    .md\:peer-data-\[variant\=inset\]\:rounded-xl:where(.peer[data-variant="inset"]) ~ * {
+        border-radius: 0.75rem;
+    }
+    
+    .md\:peer-data-\[variant\=inset\]\:shadow:where(.peer[data-variant="inset"]) ~ * {
+        --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+}
+
+/* Sidebar width variables */
+:root {
+    --sidebar-width: 16rem;
+    --sidebar-width-icon: 3rem;
+}
+
+/* Sidebar positioning and layout */
+.has-\[\[data-variant\=inset\]\]\:bg-sidebar:has([data-variant="inset"]) {
+    background-color: hsl(var(--sidebar-background));
+}
+
+/* Custom sidebar utilities */
+.sidebar-root {
+    --sidebar-width: 16rem;
+    --sidebar-width-icon: 3rem;
+}
+
+/* Group data selectors for sidebar collapsible states */
+.group-data-\[collapsible\=offcanvas\]\:w-0:where(.group[data-collapsible="offcanvas"] *) {
+    width: 0;
+}
+
+.group-data-\[collapsible\=icon\]\:w-\[--sidebar-width-icon\]:where(.group[data-collapsible="icon"] *) {
+    width: var(--sidebar-width-icon);
+}
+
+.group-data-\[variant\=floating\]\:rounded-lg:where(.group[data-variant="floating"] *) {
+    border-radius: 0.5rem;
+}
+
+.group-data-\[variant\=floating\]\:border:where(.group[data-variant="floating"] *) {
+    border-width: 1px;
+}
+
+.group-data-\[variant\=floating\]\:border-sidebar-border:where(.group[data-variant="floating"] *) {
+    border-color: hsl(var(--sidebar-border));
+}
+
+.group-data-\[variant\=floating\]\:shadow:where(.group[data-variant="floating"] *) {
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.group-data-\[side\=left\]\:border-r:where(.group[data-side="left"] *) {
+    border-right-width: 1px;
+}
+
+.group-data-\[side\=right\]\:border-l:where(.group[data-side="right"] *) {
+    border-left-width: 1px;
+}
+
+/* Width calculations for icon mode */
+.group-data-\[collapsible\=icon\]\:w-\[calc\(var\(--sidebar-width-icon\)_\+_theme\(spacing\.4\)_\+2px\)\]:where(.group[data-collapsible="icon"] *) {
+    width: calc(var(--sidebar-width-icon) + 1rem + 2px);
+}
+
+/* Viewport height utilities */
+.h-svh {
+    height: 100svh;
+}

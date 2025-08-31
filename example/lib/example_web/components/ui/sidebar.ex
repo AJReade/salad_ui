@@ -1,12 +1,12 @@
-defmodule SaladUI.Sidebar do
+defmodule ExampleWeb.Components.UI.Sidebar do
   @moduledoc false
-  use SaladUI, :component
+  use ExampleWeb.Components.UI, :component
 
-  import SaladUI.Input
-  import SaladUI.Separator
-  import SaladUI.Sheet
-  import SaladUI.Skeleton
-  import SaladUI.Tooltip
+  import ExampleWeb.Components.UI.Input
+  import ExampleWeb.Components.UI.Separator
+  import ExampleWeb.Components.UI.Sheet
+  import ExampleWeb.Components.UI.Skeleton
+  import ExampleWeb.Components.UI.Tooltip
 
   @sidebar_width "16rem"
   @sidebar_width_mobile "18rem"
@@ -21,7 +21,8 @@ defmodule SaladUI.Sidebar do
   slot(:inner_block, required: true)
 
   def sidebar_provider(assigns) do
-    assigns = assign(assigns, %{sidebar_width: @sidebar_width, sidebar_width_icon: @sidebar_width_icon})
+    assigns =
+      assign(assigns, %{sidebar_width: @sidebar_width, sidebar_width_icon: @sidebar_width_icon})
 
     ~H"""
     <div
@@ -51,7 +52,10 @@ defmodule SaladUI.Sidebar do
   Render
   """
 
-  attr :id, :string, required: true, doc: "The id of the sidebar, used for the trigger to identify the target sidebar"
+  attr :id, :string,
+    required: true,
+    doc: "The id of the sidebar, used for the trigger to identify the target sidebar"
+
   attr :side, :string, values: ~w(left right), default: "left"
   attr :variant, :string, values: ~w(sidebar floating inset), default: "sidebar"
   attr :collapsible, :string, values: ~w(offcanvas icon none), default: "offcanvas"
