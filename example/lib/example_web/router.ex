@@ -17,6 +17,9 @@ defmodule ExampleWeb.Router do
   scope "/", ExampleWeb do
     pipe_through :browser
 
+    live "/page", PageLive
+    live "/sidebar", SidebarLive
+
     get "/", PageController, :home
   end
 
