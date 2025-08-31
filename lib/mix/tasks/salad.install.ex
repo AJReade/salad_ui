@@ -294,6 +294,6 @@ defmodule Mix.Tasks.Salad.Install do
 
   defp get_default_prefix(igniter) do
     app_name = get_app_name(igniter)
-    Phoenix.Naming.camelize("#{app_name}_ui")
+    Macro.camelize("#{app_name}_ui")
   end
 end
