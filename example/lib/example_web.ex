@@ -90,44 +90,44 @@ defmodule ExampleWeb do
         except: [button: 1, icon: 1, label: 1, input: 1, table: 1]
 
       # Import ALL Salad UI components - these take priority
-      import ExampleWeb.Components.UI.Accordion
-      import ExampleWeb.Components.UI.Alert
-      import ExampleWeb.Components.UI.AlertDialog
-      import ExampleWeb.Components.UI.Avatar
-      import ExampleWeb.Components.UI.Badge
-      import ExampleWeb.Components.UI.Breadcrumb
-      import ExampleWeb.Components.UI.Button
-      import ExampleWeb.Components.UI.Card
-      import ExampleWeb.Components.UI.Chart
-      import ExampleWeb.Components.UI.Checkbox
-      import ExampleWeb.Components.UI.Collapsible
-      import ExampleWeb.Components.UI.Command
-      import ExampleWeb.Components.UI.Dialog
-      import ExampleWeb.Components.UI.DropdownMenu
-      import ExampleWeb.Components.UI.Form
-      import ExampleWeb.Components.UI.HoverCard
-      import ExampleWeb.Components.UI.Icon
-      import ExampleWeb.Components.UI.Input
-      import ExampleWeb.Components.UI.Label
-      import ExampleWeb.Components.UI.Menu
-      import ExampleWeb.Components.UI.Pagination
-      import ExampleWeb.Components.UI.Popover
-      import ExampleWeb.Components.UI.Progress
-      import ExampleWeb.Components.UI.RadioGroup
-      import ExampleWeb.Components.UI.ScrollArea
-      import ExampleWeb.Components.UI.Select
-      import ExampleWeb.Components.UI.Separator
-      import ExampleWeb.Components.UI.Sheet
-      import ExampleWeb.Components.UI.Sidebar
-      import ExampleWeb.Components.UI.Skeleton
-      import ExampleWeb.Components.UI.Slider
-      import ExampleWeb.Components.UI.Switch
-      import ExampleWeb.Components.UI.Table
-      import ExampleWeb.Components.UI.Tabs
-      import ExampleWeb.Components.UI.Textarea
-      import ExampleWeb.Components.UI.Toggle
-      import ExampleWeb.Components.UI.ToggleGroup
-      import ExampleWeb.Components.UI.Tooltip
+      # import ExampleWeb.Components.UI.Accordion
+      # import ExampleWeb.Components.UI.Alert
+      # import ExampleWeb.Components.UI.AlertDialog
+      # import ExampleWeb.Components.UI.Avatar
+      # import ExampleWeb.Components.UI.Badge
+      # import ExampleWeb.Components.UI.Breadcrumb
+      # import ExampleWeb.Components.UI.Button
+      # import ExampleWeb.Components.UI.Card
+      # import ExampleWeb.Components.UI.Chart
+      # import ExampleWeb.Components.UI.Checkbox
+      # import ExampleWeb.Components.UI.Collapsible
+      # import ExampleWeb.Components.UI.Command
+      # import ExampleWeb.Components.UI.Dialog
+      # import ExampleWeb.Components.UI.DropdownMenu
+      # import ExampleWeb.Components.UI.Form
+      # import ExampleWeb.Components.UI.HoverCard
+      # import ExampleWeb.Components.UI.Icon
+      # import ExampleWeb.Components.UI.Input
+      # import ExampleWeb.Components.UI.Label
+      # import ExampleWeb.Components.UI.Menu
+      # import ExampleWeb.Components.UI.Pagination
+      # import ExampleWeb.Components.UI.Popover
+      # import ExampleWeb.Components.UI.Progress
+      # import ExampleWeb.Components.UI.RadioGroup
+      # import ExampleWeb.Components.UI.ScrollArea
+      # import ExampleWeb.Components.UI.Select
+      # import ExampleWeb.Components.UI.Separator
+      # import ExampleWeb.Components.UI.Sheet
+      # import ExampleWeb.Components.UI.Sidebar
+      # import ExampleWeb.Components.UI.Skeleton
+      # import ExampleWeb.Components.UI.Slider
+      # import ExampleWeb.Components.UI.Switch
+      # import ExampleWeb.Components.UI.Table
+      # import ExampleWeb.Components.UI.Tabs
+      # import ExampleWeb.Components.UI.Textarea
+      # import ExampleWeb.Components.UI.Toggle
+      # import ExampleWeb.Components.UI.ToggleGroup
+      # import ExampleWeb.Components.UI.Tooltip
 
       # Common modules used in templates
       alias Phoenix.LiveView.JS

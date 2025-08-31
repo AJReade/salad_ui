@@ -110,7 +110,14 @@ defmodule SaladUI.Sidebar do
   def sidebar(assigns) do
     ~H"""
     <div
-      class="group peer hidden md:block text-sidebar-foreground sidebar-root"
+      class={
+        classes([
+          "group peer hidden md:flex flex-shrink-0 text-sidebar-foreground sidebar-root transition-[width] duration-200 ease-linear",
+          "w-[--sidebar-width]",
+          "group-data-[collapsible=icon]:w-[--sidebar-width-icon]",
+          "group-data-[collapsible=offcanvas]:w-0"
+        ])
+      }
       data-state={@state}
       data-collapsible={(@state == "collapsed" && @collapsible) || "none"}
       data-variant={@variant}
@@ -120,12 +127,8 @@ defmodule SaladUI.Sidebar do
     >
       <div class={
         classes([
-          "duration-200 relative h-svh w-[--sidebar-width] bg-transparent transition-[width] ease-linear",
-          "group-data-[collapsible=offcanvas]:w-0",
-          "group-data-[side=right]:rotate-180",
-          ((@variant == "floating" || @variant == "inset") &&
-             "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]") ||
-            "group-data-[collapsible=icon]:w-[--sidebar-width-icon]"
+          "duration-200 relative h-svh w-full bg-transparent",
+          "group-data-[side=right]:rotate-180"
         ])
       } />
       <div
@@ -235,7 +238,10 @@ defmodule SaladUI.Sidebar do
     <main
       class={
         classes([
-          "relative flex min-h-svh flex-1 flex-col bg-background transition-all duration-200",
+          "relative flex min-h-svh flex-1 flex-col bg-background",
+          "peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))]",
+          "md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2",
+          "md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow",
           @class
         ])
       }

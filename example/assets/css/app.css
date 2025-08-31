@@ -4,7 +4,6 @@
 @import "tailwindcss" source(none);
 @plugin "@tailwindcss/typography";
 @import "./salad_ui.css";
-@import "./salad_ui_tailwind_v4_fixed.css";
 
 @theme {
   /* Colors */
@@ -116,6 +115,7 @@
 
 @plugin "../vendor/daisyui-theme" {
   name: "light";
+@plugin "../vendor/tailwindcss-animate";
   default: true;
   prefersdark: false;
   color-scheme: "light";

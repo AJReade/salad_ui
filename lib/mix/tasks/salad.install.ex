@@ -44,6 +44,7 @@ defmodule Mix.Tasks.Salad.Install do
     igniter
     |> patch_tw_merge()
     |> copy_salad_ui_css()
+    |> copy_vendor_files()
     |> patch_css_for_tailwind_v4(color_scheme)
   end
 
@@ -172,6 +173,17 @@ defmodule Mix.Tasks.Salad.Install do
 
     Igniter.copy_template(igniter, source_file, target_file, [])
   end
+  
+  defp copy_vendor_files(igniter) do
+    # Ensure vendor directory exists
+    File.mkdir_p!("./assets/vendor")
+    
+    # Copy tailwindcss-animate.css
+    source_file = assets_path("tailwindcss-animate.css")
+    target_file = "./assets/vendor/tailwindcss-animate.css"
+    
+    Igniter.copy_template(igniter, source_file, target_file, [])
+  end
 
 
 
@@ -194,7 +206,12 @@ defmodule Mix.Tasks.Salad.Install do
         {:ok, opts[:path] || default_dep_path(dep)}
 
       nil ->
-        {:error, "SaladUI not found in dependencies"}
+        # For development, use the parent directory if we're in the example app
+        if String.contains?(File.cwd!(), "/example") do
+          {:ok, Path.expand("..", File.cwd!())}
+        else
+          {:error, "SaladUI not found in dependencies"}
+        end
     end
   end
 
@@ -208,6 +225,7 @@ defmodule Mix.Tasks.Salad.Install do
 
   defp get_default_prefix(igniter) do
     app_name = get_app_name(igniter)
-    Macro.camelize("#{app_name}_ui")
+    web_module = Macro.camelize("#{app_name}_web")
+    "#{web_module}.Components.UI"
   end
 end

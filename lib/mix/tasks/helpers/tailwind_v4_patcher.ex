@@ -15,8 +15,7 @@ defmodule SaladUI.Patcher.TailwindV4Patcher do
   ]
   
   @salad_imports [
-    "@import \"./salad_ui.css\";",
-    "@import \"./salad_ui_tailwind_v4_fixed.css\";"
+    "@import \"./salad_ui.css\";"
   ]
 
   @doc """
@@ -119,22 +118,17 @@ defmodule SaladUI.Patcher.TailwindV4Patcher do
     else
       theme_config = get_theme_configuration()
       
-      # Add @theme after salad_ui_tailwind_v4.css import (or salad_ui.css if v4 not found)
-      case Regex.run(~r/@import\s+"\.\/salad_ui_tailwind_v4\.css"[^;]*;/s, content) do
-        [salad_v4_import] ->
-          String.replace(content, salad_v4_import, "#{salad_v4_import}\n\n#{theme_config}")
+      # Add @theme after salad_ui.css import
+      case Regex.run(~r/@import\s+"\.\/salad_ui\.css"[^;]*;/s, content) do
+        [salad_import] ->
+          String.replace(content, salad_import, "#{salad_import}\n\n#{theme_config}")
         nil ->
-          case Regex.run(~r/@import\s+"\.\/salad_ui\.css"[^;]*;/s, content) do
-            [salad_import] ->
-              String.replace(content, salad_import, "#{salad_import}\n\n#{theme_config}")
+          # If no salad_ui import found, add after tailwindcss import
+          case Regex.run(~r/@import\s+"tailwindcss"[^;]*;/s, content) do
+            [tailwind_import] ->
+              String.replace(content, tailwind_import, "#{tailwind_import}\n\n#{theme_config}")
             nil ->
-              # If no salad_ui import found, add after tailwindcss import
-              case Regex.run(~r/@import\s+"tailwindcss"[^;]*;/s, content) do
-                [tailwind_import] ->
-                  String.replace(content, tailwind_import, "#{tailwind_import}\n\n#{theme_config}")
-                nil ->
-                  "#{theme_config}\n\n#{content}"
-              end
+              "#{theme_config}\n\n#{content}"
           end
       end
     end
